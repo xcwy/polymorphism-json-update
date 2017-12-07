@@ -20,7 +20,7 @@ public class UpdateRequest<T> {
   private Integer version;
 
   /**
-   * Array of UpdateAction.
+   * Array of UserAction.
    * The list of update action to be performed on the category.
    * Required.
    */
@@ -31,7 +31,7 @@ public class UpdateRequest<T> {
   /**
    * convert to UpdateActions.
    *
-   * @return list of UpdateAction
+   * @return list of UserAction
    */
   public List<T> getActions() {
 //    return actions.stream().map(action -> (T) action).collect(Collectors.toList());

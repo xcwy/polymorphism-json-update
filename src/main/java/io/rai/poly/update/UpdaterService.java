@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * Created by rai on 2017/12/7.
  */
 @Component
-public class UpdaterService{
+public class UpdaterService {
 
   /**
    * ApplicationContext for get update services.
@@ -27,9 +27,9 @@ public class UpdaterService{
    * put the value in action to entity.
    *
    * @param entity E
-   * @param action UpdateAction
+   * @param action UserAction
    */
-  public void handle(Object entity, UpdateAction action) {
+  public void handle(Object entity, Update action) {
     Updater updater = getUpdateService(action);
     updater.handle(entity, action);
   }
@@ -37,10 +37,10 @@ public class UpdaterService{
   /**
    * get mapper.
    *
-   * @param action UpdateAction class
+   * @param action UserAction class
    * @return ZoneUpdateMapper
    */
-  private Updater getUpdateService(UpdateAction action) {
+  private Updater getUpdateService(Update action) {
     return (Updater) context.getBean(action.getAction());
   }
 }
