@@ -1,4 +1,4 @@
-package io.rai.poly.update.action;
+package io.rai.poly.action.customer;
 
 import io.rai.poly.update.UpdateRouter;
 

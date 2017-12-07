@@ -29,7 +29,7 @@ public class UpdaterService {
    * @param entity E
    * @param action UserAction
    */
-  public void handle(Object entity, Update action) {
+  public void handle(Object entity, UpdateAction action) {
     Updater updater = getUpdateService(action);
     updater.handle(entity, action);
   }
@@ -40,7 +40,7 @@ public class UpdaterService {
    * @param action UserAction class
    * @return ZoneUpdateMapper
    */
-  private Updater getUpdateService(Update action) {
+  private Updater getUpdateService(UpdateAction action) {
     return (Updater) context.getBean(action.getAction());
   }
 }

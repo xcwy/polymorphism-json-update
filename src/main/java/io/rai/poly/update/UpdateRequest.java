@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 /**
  * Created by rai on 2017/12/7.
  */
-public class UpdateRequest<T> {
+public class UpdateRequest<T extends UpdateAction> {
 
   /**
    * The expected version of the category on which the changes should be applied.

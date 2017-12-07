@@ -1,9 +1,9 @@
-package io.rai.poly.update.action;
+package io.rai.poly.action.user;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-import io.rai.poly.update.Update;
+import io.rai.poly.update.UpdateAction;
 import io.rai.poly.update.UpdateRouter;
 
 /**
@@ -14,6 +14,6 @@ import io.rai.poly.update.UpdateRouter;
     @JsonSubTypes.Type(value = UserSetNameAction.class, name = UpdateRouter.USER_SET_NAME),
     @JsonSubTypes.Type(value = UserSetIdAction.class, name = UpdateRouter.USER_SET_ID),
 })
-public interface UserAction extends Update {
+public interface UserAction extends UpdateAction {
 
 }

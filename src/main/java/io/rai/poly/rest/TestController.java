@@ -4,8 +4,8 @@ import io.rai.poly.entity.Customer;
 import io.rai.poly.entity.User;
 import io.rai.poly.update.UpdateRequest;
 import io.rai.poly.update.UpdaterService;
-import io.rai.poly.update.action.CustomerAction;
-import io.rai.poly.update.action.UserAction;
+import io.rai.poly.action.customer.CustomerAction;
+import io.rai.poly.action.user.UserAction;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +28,9 @@ public class TestController {
   private UpdaterService updaterService;
 
   /**
-   * url: http://localhost:8080/customers method: put body: {"version":1,"actions":[{"name":"testName","action":"customerSetName"},{"id":"testId","action":"customerSetId"}]}
+   * url: http://localhost:8080/customers
+   * method: put
+   * body: {"version":1,"actions":[{"name":"testName","action":"customerSetName"},{"id":"testId","action":"customerSetId"}]}
    */
   @PutMapping(path = "customers")
   public void update(@RequestBody UpdateRequest<CustomerAction> request) {
@@ -50,7 +52,9 @@ public class TestController {
   }
 
   /**
-   * url: http://localhost:8080/users method: put body: {"version":1,"actions":[{"name":"testName","action":"userSetName"},{"id":"testId","action":"userSetId"}]}
+   * url: http://localhost:8080/users
+   * method: put
+   * body: {"version":1,"actions":[{"name":"testName","action":"userSetName"},{"id":"testId","action":"userSetId"}]}
    */
   @PutMapping(path = "users")
   public void updates(@RequestBody UpdateRequest<UserAction> request) {

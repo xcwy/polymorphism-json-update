@@ -1,13 +1,10 @@
-package io.rai.poly.update.service;
+package io.rai.poly.service.user;
 
-import io.rai.poly.entity.Customer;
 import io.rai.poly.entity.User;
 import io.rai.poly.update.UpdateRouter;
 import io.rai.poly.update.Updater;
-import io.rai.poly.update.action.CustomerAction;
-import io.rai.poly.update.action.CustomerSetNameAction;
-import io.rai.poly.update.action.UserAction;
-import io.rai.poly.update.action.UserSetNameAction;
+import io.rai.poly.action.user.UserAction;
+import io.rai.poly.action.user.UserSetNameAction;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
