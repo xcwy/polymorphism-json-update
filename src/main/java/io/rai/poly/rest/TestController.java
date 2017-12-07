@@ -28,11 +28,13 @@ public class TestController {
   private UpdaterService updaterService;
 
   /**
-   * url: http://localhost:8080/customers
+   * 一个对象多个action同时执行的方法
+   *
+   * url: http://localhost:8080/customers/actions
    * method: put
    * body: {"version":1,"actions":[{"name":"testName","action":"customerSetName"},{"id":"testId","action":"customerSetId"}]}
    */
-  @PutMapping(path = "customers")
+  @PutMapping(path = "customers/actions")
   public void update(@RequestBody UpdateRequest<CustomerAction> request) {
     LOG.info("Enter. version: {}.", request.getVersion());
 
@@ -49,6 +51,28 @@ public class TestController {
     customer.setId("AAAAA");
 
     actions.stream().forEach(action -> updaterService.handle(customer, action));
+  }
+
+  /**
+   * 一个对象一个action单独执行的方法
+   * url: http://localhost:8080/customers/action
+   * method: put
+   * body: {"name":"testName","action":"customerSetName"}
+   *
+   * @param action
+   */
+  @PutMapping(path = "customers/action")
+  public void update(@RequestBody CustomerAction action) {
+    LOG.info("Enter.");
+
+    LOG.info("action class: {}.", action.getClass());
+    LOG.info("update action: {}.", action);
+
+    Customer customer = new Customer();
+    customer.setName("XXXXX");
+    customer.setId("AAAAA");
+
+    updaterService.handle(customer, action);
   }
 
   /**
